@@ -1,9 +1,6 @@
 /* mobile vs tablet */
 @media(max-width:1023px){
-    :root{
-        --header-height:68px;
-        --navbar-height:0px;
-    } 
+   
     .header{
         position: fixed;
         z-index: 10;
@@ -12,7 +9,7 @@
         right: 0;
     }
     .app_container{
-        margin:calc(var(--header-height) + var(--header-sort-bar-height));
+        margin-top:calc(var(--header-height) + var(--header-sort-bar-height));
     }
     .hide-on-mobile-tablet{
         display: none;
@@ -30,6 +27,9 @@
     .header__sort-bar{
         display: flex;
     }
+    .mobile-category{
+        display:block;
+    }
 }
 /* tablet */
 @media(min-width:740px) and (max-width:1023px){
@@ -40,10 +40,21 @@
         width:80px;
         text-align: right;
     }
+    .app_content{
+        margin-top:-36px;
+    }
+    :root{
+        --header-height:68px;
+        --navbar-height:0px;
+    } 
 
 }
 /* Mobile */
 @media(max-width:739px){
+    :root{
+        --header-height:54px;
+        --navbar-height:0px;
+    } 
     .hide-on-mobile{
         display: none;
     }
@@ -68,12 +79,25 @@
         animation:mobileSearchideIn  linear 0.3s;
         display:none;
     }
+    @keyframes mobileSearchideIn {
+        from{
+            opacity: 0;
+            top: calc(var(--header-height) / 2);
+        }
+        to{
+            opacity: 1;
+            top : var(--header-height);
+        }
+    }
     .header__search-history{
         position: fixed;
         width:100%;
         top: calc(var(--header-height) + var(--header-sort-bar-height));
         left: 0;
         box-shadow: 0 1px 2px ragb(0,0,0,0.05);
+    }
+    .header__mobile-search  {
+        display:block;
     }
     .pagination-item__link {
         --height:28px;
@@ -84,16 +108,29 @@
         margin: 0;
     }
     .app_container{
+        margin: 77px 0 4px;
+    }
+    .header__logo-img{
+        width: 120px;
+    }
+    .footer__content{
+        padding : 0 16px;
+    }
+    .app_content{
         margin:0 4px;
     }
-    @keyframes mobileSearchideIn {
-        from{
-            opacity: 0;
-            top: calc(var(--header-height) / 2);
-        }
-        to{
-            opacity: 1;
-            top : var(--header-height);
-        }
+    .footer__dowload,
+    .footer__heading{
+        text-align: center;
+    }
+    .footer-item__link{
+        justify-content:center;
+    }
+    .footer__dowload-app{
+        flex:unset;
+    }
+    .footer__dowload-app-link{
+        display:block;
+        padding: 6px 8px;
     }
 }
